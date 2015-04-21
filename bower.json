@@ -1,0 +1,17 @@
+{
+  "name": "stopHunger",
+  "version": "0.1.0",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "public/vendor"
+  ],
+  "dependencies": {
+    "bootstrap": "*",
+    "jquery": "*",
+    "angular": "*",
+    "underscore": "*",
+    "angular-socket-io": ""
+  }
+}
