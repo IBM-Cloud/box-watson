@@ -11,7 +11,8 @@ var express = require('express'),
   box_sdk = require('box-sdk'),
   fs = require("fs"),
   watson = require('watson-developer-cloud'),
-  _ = require("underscore");
+  _ = require("underscore"),
+  uuid = require("node-uuid");
 
 var port = process.env.VCAP_APP_PORT || 3000;
 
@@ -141,14 +142,16 @@ app.get("/api/v1/files", ensureAuthenticated, function (request, response) {
 app.get("/api/v1/personality/:fileId", ensureAuthenticated, function (request, response) {
    var connection = box.getConnection(request.user.login),
     fileId = parseInt(request.params.fileId);
+    randomUuid = uuid.v4();
+
     connection.ready(function () {
-      connection.getFile(fileId, null, "/tmp/wedding.txt", function (err, result) {
+      connection.getFile(fileId, null, "/tmp/" + randomUuid + ".txt", function (err, result) {
         if (err) {
           response.send(err);
         }
         else {
           var txtFile = "";
-          fs.readFile("/tmp/wedding.txt", function(error, result) {
+          fs.readFile("/tmp/" + randomUuid + ".txt", function(error, result) {
             if (error) {
               response.send(error);
               return;

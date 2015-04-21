@@ -18,6 +18,7 @@
     "express-session": "*",
     "method-override": "*",
     "watson-developer-cloud": "*",
-    "underscore": "*"
+    "underscore": "*",
+    "node-uuid": "*"
   }
 }
