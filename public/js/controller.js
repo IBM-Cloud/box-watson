@@ -10,7 +10,7 @@ angular.module("BluemixLightShow")
         $http.get("/api/v1/files").
         success(function(data, status, headers, config) {
             console.log(data);
-            $scope.files = data.entries;
+            $scope.files = data;
             $scope.filteredFiles = data;
             $scope.error = false;
             $scope.chunkedData = chunk($scope.files, 3);

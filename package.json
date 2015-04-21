@@ -17,6 +17,7 @@
     "cookie-parser": "*",
     "express-session": "*",
     "method-override": "*",
-    "watson-developer-cloud": "*"
+    "watson-developer-cloud": "*",
+    "underscore": "*"
   }
 }

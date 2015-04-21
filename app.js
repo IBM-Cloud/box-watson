@@ -10,7 +10,8 @@ var express = require('express'),
   BoxStrategy = require('passport-box').Strategy,
   box_sdk = require('box-sdk'),
   fs = require("fs"),
-  watson = require('watson-developer-cloud');
+  watson = require('watson-developer-cloud'),
+  _ = require("underscore");
 
 var port = process.env.VCAP_APP_PORT || 3000;
 
@@ -37,7 +38,7 @@ passport.deserializeUser(function (obj, done) {
 passport.use(new BoxStrategy({
     clientID: BOX_CLIENT_ID,
     clientSecret: BOX_CLIENT_SECRET,
-    callbackURL: "https://box-watson.mybluemix.net/auth/box/callback"
+    callbackURL: "http://localhost:3000/auth/box/callback"
   }, box.authenticate()));
 
 
@@ -124,7 +125,14 @@ app.get("/api/v1/files", ensureAuthenticated, function (request, response) {
       if (err) {
         response.send(err);
       } else {
-        response.send(result);
+        //filter out anything other than .txt files
+        var files = [];
+        _.each(result.entries, function(file) {
+            if (file.name.indexOf(".txt") !== -1) {
+                files.push(file);
+            }
+        });
+        response.send(files);
       }
     });
   });
