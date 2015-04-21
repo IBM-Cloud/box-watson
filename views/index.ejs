@@ -1,0 +1,56 @@
+<%- include header.ejs %>
+<% if (!user) { %>
+    <h3>Woulnd't it be <strong>cool</strong> if you analyze the <strong>personality</strong> of the author of your files in your <strong>Box</strong> account using <strong>Watson</strong>?</h3>
+    <h3>We thought so too!  <a href="/auth/box">Log In</a> with your <strong>Box</strong> account now to try it out!</h3>
+    <p>
+    <a href="/">Home</a> |
+    <a href="/auth/box">Log In</a>
+    </p>
+<% } else { %>
+    <h2>Hello, <%= user.name %>.</h2>
+    <hr />
+    <h3>Below are your txt files from your Box account</h3>
+    <h6>Note: Only txt files are supported, other types coming soon</h6>
+    <hr />
+    <h3>To get started:</h3>
+    <h3>Click a filename below to have Watson analyze your file</h3>
+    <hr />
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" ng-repeat="rows in chunkedData">
+  <div class="panel panel-default" ng-repeat="file in rows">
+    <div class="panel-heading" role="tab" id="heading-{{ file.id }}">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{ file.id }}" aria-expanded="false" aria-controls="collapse-{{ file.id }}" ng-click="getPersonality()">
+          {{ file.name }}
+        </a>
+      </h4>
+    </div>
+    <div id="collapse-{{ file.id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-{{ file.id }}">
+      <div class="panel-body traits">
+        <div ng-if="file.personality">
+            <ul>
+                <li ng-repeat="trait in file.personality.tree.children[0].children[0].children">
+                    {{ trait.name }}: {{ trait.percentage | percentage:2 }}
+                    <div class="progress">
+                      <div class="bar" style="width: {{ trait.percentage | percentage:2 }}; height: 100%; background-color: #0abeef;"></div>
+                    </div>
+                </li>
+            </ul>
+            <button class="btn btn-default">Full Personality Graph</button>
+        </div>
+        <div ng-if="!file.personality">
+            Loading...
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <p>
+    <a href="/">Home</a> |
+    <a href="/account">Account</a> |
+    <a href="/logout">Log Out</a>
+    </p>
+<% } %>
+<%- include footer.ejs %>
