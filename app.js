@@ -39,7 +39,7 @@ passport.deserializeUser(function (obj, done) {
 passport.use(new BoxStrategy({
     clientID: BOX_CLIENT_ID,
     clientSecret: BOX_CLIENT_SECRET,
-    callbackURL: "https://box-watson.mybluemix.net/auth/box/callback"
+    callbackURL: config.appURL() + "/auth/box/callback"
   }, box.authenticate()));
 
 

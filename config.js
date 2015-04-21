@@ -1,8 +1,14 @@
 var VCAP_SERVICES = process.env["VCAP_SERVICES"],
-    vcapServices;
+    vcapServices,
+    VCAP_APPLICATION = process.env["VCAP_APPLICATION"],
+    vcapApplication;
 
 if (VCAP_SERVICES) {
     vcapServices = JSON.parse(VCAP_SERVICES);
+}
+
+if (VCAP_APPLICATION) {
+    vcapApplication = JSON.parse(VCAP_APPLICATION);
 }
 
 function getEnv(propName, defaultValue) {
@@ -46,6 +52,14 @@ module.exports = function() {
             }
             else {
                 return getEnv("BOX_CLIENT_SECRET", "");
+            }
+        },
+        appURL: function() {
+            if (VCAP_APPLICATION) {
+                return "https://" + vcapApplication.application_uris[0];
+            }
+            else {
+                return "http://localhost:3000"
             }
         }
     };
