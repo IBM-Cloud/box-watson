@@ -28,6 +28,10 @@ body, html {
     border-radius: 0;
 }
 
+.panel-title {
+  color: #5aaaf9;
+}
+
 #footer {
     position: relative;
     bottom: 0;

@@ -9,8 +9,20 @@ angular.module("BluemixLightShow")
     function getFiles() {
         $http.get("/api/v1/files").
         success(function(data, status, headers, config) {
-            console.log(data);
             $scope.files = data;
+
+            // Asynchronously get description for the files
+            for (var i=0; i < $scope.files.length; i++) {
+                $http.get("/api/v1/fileInfo/" + $scope.files[i].id + "/" + i.toString()).
+                    success(function(data) {
+                        $scope.files[data.iterator].description = data.description;
+                    }).
+                    error(function(data) {
+                        $scope.error = true;
+                        $scope.errorMessage = data.message;
+                    });
+            }
+
             $scope.filteredFiles = data;
             $scope.error = false;
             $scope.chunkedData = chunk($scope.files, 3);
@@ -35,6 +47,17 @@ angular.module("BluemixLightShow")
     };
 
     getFiles();
+    /* Asynchronously get description for the files
+    for (var i=0; i < $scope.files.length; i++) {
+        $http.get("/api/v1/fileInfo/" + $scope.files[i].id).
+            success(function(data) {
+                $scope.files[i].description = data.description;
+            }).
+            error(function(data) {
+                $scope.error = true;
+                $scope.errorMessage = data.message;
+            });
+    }*/
 
     $scope.trustSrc = function(src) {
         return $sce.trustAsResourceUrl(src);

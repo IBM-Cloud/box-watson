@@ -35,7 +35,7 @@ passport.deserializeUser(function (obj, done) {
   done(null, obj);
 });
 
-
+// Authenticate bos identification
 passport.use(new BoxStrategy({
     clientID: BOX_CLIENT_ID,
     clientSecret: BOX_CLIENT_SECRET,
@@ -60,6 +60,7 @@ app.listen(port, function() {
   console.log("server started on port " + port);
 });
 
+// Used to ensure the user is authenticated in Box
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
@@ -67,6 +68,7 @@ function ensureAuthenticated(req, res, next) {
   res.redirect('/login');
 }
 
+// Serve the home page
 app.get('/', function (req, res) {
   var opts = {
     user: req.user
@@ -119,18 +121,22 @@ app.get('/logout', function (req, res) {
   res.redirect('/');
 });
 
+
+// Get user's files and return txt files to caller
 app.get("/api/v1/files", ensureAuthenticated, function (request, response) {
   var connection = box.getConnection(request.user.login);
   connection.ready(function () {
     connection.getFolderItems(0, null, function (err, result) {
       if (err) {
         response.send(err);
-      } else {
+      }
+      else {
         //filter out anything other than .txt files
         var files = [];
         _.each(result.entries, function(file) {
+          // get the description for the .txt files
             if (file.name.indexOf(".txt") !== -1) {
-                files.push(file);
+              files.push(file);
             }
         });
         response.send(files);
@@ -139,11 +145,11 @@ app.get("/api/v1/files", ensureAuthenticated, function (request, response) {
   });
 });
 
+// Get personality insights based for text of the passed file
 app.get("/api/v1/personality/:fileId", ensureAuthenticated, function (request, response) {
    var connection = box.getConnection(request.user.login),
     fileId = parseInt(request.params.fileId);
     randomUuid = uuid.v4();
-
     connection.ready(function () {
       connection.getFile(fileId, null, "/tmp/" + randomUuid + ".txt", function (err, result) {
         if (err) {
@@ -157,7 +163,6 @@ app.get("/api/v1/personality/:fileId", ensureAuthenticated, function (request, r
               return;
             }
             txtFile = result.toString();
-            console.log(txtFile);
             personality_insights.profile({
               text: txtFile },
               function (err, result) {
@@ -170,6 +175,23 @@ app.get("/api/v1/personality/:fileId", ensureAuthenticated, function (request, r
             });
           });
         }
+    });
+  });
+});
+
+// Get file info for a particular file
+app.get("/api/v1/fileInfo/:fileId/:iterator", ensureAuthenticated, function (request, response) {
+  var connection = box.getConnection(request.user.login);
+  var fileId = parseInt(request.params.fileId);
+  connection.ready(function () {
+    connection.getFileInfo(fileId, function (err, result) {
+      if (err) {
+        response.send(err);
+      }
+      else {
+        result.iterator = request.params.iterator;
+        response.send(result);
+      }
     });
   });
 });
