@@ -23,6 +23,7 @@
           {{ file.name }}
         </a>
       </h4>
+      <p>{{file.description}}</p>
     </div>
     <div id="collapse-{{ file.id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-{{ file.id }}">
       <div class="panel-body traits">
@@ -35,7 +36,7 @@
                     </div>
                 </li>
             </ul>
-            <!--<button class="btn btn-default">Full Personality Graph</button>-->
+            <button class="btn btn-default">Full Personality Graph</button>
         </div>
         <div ng-if="!file.personality">
             Loading...
