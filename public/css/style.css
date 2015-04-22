@@ -18,6 +18,10 @@ body, html {
     width: 100%;
 }
 
+.hidden {
+  display: none;
+}
+
 .btn-primary {
     background-color: #1d3648;
     border: none;

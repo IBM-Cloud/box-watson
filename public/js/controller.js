@@ -54,6 +54,8 @@ angular.module("BluemixLightShow")
             getFiles();
         }
         else {
+            if (filename)
+                filename = filename.toLowerCase();
             $scope.filteredFiles = _.filter($scope.files, function(file){
                 if (file.name.toLowerCase().indexOf(filename) !== -1) {
                     return true;
