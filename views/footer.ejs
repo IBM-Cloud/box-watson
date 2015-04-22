@@ -1,0 +1,25 @@
+
+</div>
+</div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="container">
+            <p class="muted credit">Made with <span class="glyphicon glyphicon-heart"></span> by <a href="http://twitter.com/jsloyer">@jsloyer</a>. Powered by <a href="http://bluemix.net" target="_blank">IBM Bluemix</a>.</p>
+        </div>
+    </div>
+        <% if (!user) { %>
+        <script>
+            var searchCol = document.getElementById("search-col");
+            searchCol.className += " hidden";
+        </script>
+        <% }%>
+        <script src="/vendor/jquery/dist/jquery.min.js" type="text/javascript"> </script>
+        <script src="/vendor/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"> </script>
+        <script src="/vendor/underscore/underscore-min.js" type="text/javascript"> </script>
+        <script src="/vendor/angular/angular.min.js" type="text/javascript"> </script>
+        <script src="/vendor/angular-socket-io/socket.min.js"></script>
+        <script src="/js/app.js" type="text/javascript"> </script>
+        <script src="/js/controller.js" type="text/javascript"> </script>
+  </body>
+</html>

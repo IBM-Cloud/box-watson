@@ -1,0 +1,24 @@
+{
+  "name": "box-watson",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "postinstall": "bower install --allow-root"
+  },
+  "dependencies": {
+    "express": "4.9.x",
+    "bower": "*",
+    "ejs": "*",
+    "passport": "*",
+    "passport-box": "*",
+    "box-sdk": "*",
+    "morgan": "*",
+    "body-parser": "*",
+    "cookie-parser": "*",
+    "express-session": "*",
+    "method-override": "*",
+    "watson-developer-cloud": "*",
+    "underscore": "*",
+    "node-uuid": "*"
+  }
+}
