@@ -1,17 +1,32 @@
-This README.md file is displayed on your project page. You should edit this 
-file to describe your project, including instructions for building and 
-running the project, pointers to the license under which you are making the 
-project available, and anything else you think would be useful for others to
-know.
+Bluemix sample/tutorial: Integrating Box API's with Watson built on IBM Bluemix
+===
 
-We have created an empty license.txt file for you. Well, actually, it says,
-"<Replace this text with the license you've chosen for your project.>" We 
-recommend you edit this and include text for license terms under which you're
-making your code available. A good resource for open source licenses is the 
-[Open Source Initiative](http://opensource.org/).
+INSTALLATION
+===
+* Sign up for a [Bluemix](http://bluemix.net) account
+* Create an app at [http://developer.box.com](http://developer.box.com)
+* Create a Watson Personality Inights Service in Bluemix
+* Create a Box Service in Bluemix
+* `cf push <appname> --no-start` to publish the application
+* Bind the services to the app
+  * `cf bind-service <appname> <nameOfWatsonService>`
+  * `cf bind-service <appname> <nameOfBoxService>`
+* `cf start <appname>` to start the application
 
-Be sure to update your project's profile with a short description and 
-eye-catching graphic.
+USAGE
+===
+Demo app: [https://box-watson.mybluemix.net/](https://box-watson.mybluemix.net/)
 
-Finally, consider defining some sprints and work items in Track & Plan to give 
-interested developers a sense of your cadence and upcoming enhancements.
+* Login with your Box.com username and password
+
+AUTHOR
+===
+Jeff Sloyer <jbsloyer@us.ibm.com>
+
+CONTRIBUTORS
+===
+Jake Peyser <jepeyser@us.ibm.com>
+
+LICENSE
+===
+Apache 2.0. See [LICENSE.txt](LICENSE.txt)
