@@ -1,11 +1,12 @@
 <%- include header.ejs %>
 <% if (!user) { %>
-    <h3>Wouldn't it be <strong>intriguing</strong> if you could gain insight into the <strong>personality</strong> of a file's author, simply by <strong>analyzing the text</strong> of the file?</h3>
     <h3>Using <strong>Bluemix</strong>, <strong>Box</strong>, and <strong>Watson</strong> we are able to do just that! <a href="/auth/box">Log In</a> with your Box account to try it out for yourself!</h3>
-    <p>
-    <a href="/">Home</a> |
-    <a href="/auth/box">Log In</a>
-    </p>
+    <div class="text-center">
+        <a href="/auth/box">
+            <button type="button" class="btn btn-default btn-lg">Sign in with your Box.com account</button>
+        </a>
+    </div>
+    <h4>Made with <span class="glyphicon glyphicon-heart"></span> using Box + Bluemix + Watson</h4>
 <% } else { %>
     <h2>Hello, <%= user.name %>.</h2>
     <hr />
@@ -48,9 +49,7 @@
 
 
     <p>
-    <a href="/">Home</a> |
-    <a href="/account">Account</a> |
-    <a href="/logout">Log Out</a>
+        <a href="/logout">Log Out</a>
     </p>
 <% } %>
 <%- include footer.ejs %>
