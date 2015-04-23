@@ -1,6 +1,12 @@
 Bluemix sample/tutorial: Integrating Box API's with Watson built on IBM Bluemix
 ===
 
+What does this app do?
+===
+This app is a demo that showcases how quickly and easily an app can be built on Bluemix using the Personality Insights service from IBM Watson and the Box Service.
+
+When you visit the app it will ask you to login in with your Box.com account.  Once you login the app will retrieve all the `.txt` files from your Box account.  You can then click on each file in your account to let IBM Watson analyze the personality of the author of each of your files.
+
 INSTALLATION
 ===
 * Sign up for a [Bluemix](http://bluemix.net) account
