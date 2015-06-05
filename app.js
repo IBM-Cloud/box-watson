@@ -1,31 +1,40 @@
 var express = require('express'),
     app = express(),
     config = require("./config")(),
-  passport = require('passport'),
-  morgan = require('morgan'),
-  bodyParser = require('body-parser'),
-  cookieParser = require('cookie-parser'),
-  session = require('express-session'),
-  methodOverride = require('method-override'),
-  BoxStrategy = require('passport-box').Strategy,
-  box_sdk = require('box-sdk'),
-  fs = require("fs"),
-  watson = require('watson-developer-cloud'),
-  _ = require("underscore"),
-  uuid = require("node-uuid");
+    passport = require('passport'),
+    morgan = require('morgan'),
+    bodyParser = require('body-parser'),
+    cookieParser = require('cookie-parser'),
+    session = require('express-session'),
+    methodOverride = require('method-override'),
+    BoxStrategy = require('passport-box').Strategy,
+    box_sdk = require('box-sdk'),
+    fs = require("fs"),
+    watson = require('watson-developer-cloud'),
+    _ = require("underscore"),
+    uuid = require("node-uuid"),
+    cfenv = require("cfenv");
+
+//---Environment Vars-----------------------------------------------------------
+var vcapLocal = null
+try {
+  vcapLocal = require("./vcap-local.json")
+}
+catch (e) {}
+
+var appEnvOpts = vcapLocal ? {vcap:vcapLocal} : {}
+var appEnv = cfenv.getAppEnv(appEnvOpts);
+
+//---Set up Watson Personality Insights-----------------------------------------
+var personalityInsightsCreds = getServiceCreds(appEnv, "personality-insights-box");
+personalityInsightsCreds.version = "v2";
+var personality_insights = watson.personality_insights(personalityInsightsCreds);
+
+//---Set up Box--------------------------------------------------------------
+var boxCreds = getServiceCreds(appEnv, "box"),
+    box = box_sdk.Box();
 
 var port = process.env.VCAP_APP_PORT || 3000;
-
-var BOX_CLIENT_ID = config.boxClientId(),
-    BOX_CLIENT_SECRET = config.boxClientSecret();
-
-var personality_insights = watson.personality_insights({
-  username: config.watsonUsername(),
-  password: config.watsonPassword(),
-  version: 'v2'
-});
-
-var box = box_sdk.Box();
 
 passport.serializeUser(function (user, done) {
   done(null, user);
@@ -37,12 +46,12 @@ passport.deserializeUser(function (obj, done) {
 
 // Authenticate bos identification
 passport.use(new BoxStrategy({
-    clientID: BOX_CLIENT_ID,
-    clientSecret: BOX_CLIENT_SECRET,
-    callbackURL: config.appURL() + "/auth/box/callback"
+    clientID: boxCreds.clientId,
+    clientSecret: boxCreds.clientSecret,
+    callbackURL: config.appURL(appEnv.port) + "/auth/box/callback"
   }, box.authenticate()));
 
-
+//---Routers and View Engine----------------------------------------------------
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.use(morgan());
@@ -56,8 +65,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(__dirname + '/public'));
 
-app.listen(port, function() {
-  console.log("server started on port " + port);
+app.listen(appEnv.port, function() {
+  console.log("server started on port " + appEnv.port);
 });
 
 // Used to ensure the user is authenticated in Box
@@ -121,6 +130,7 @@ app.get('/logout', function (req, res) {
   res.redirect('/');
 });
 
+//---API call handlers----------------------------------------------------------
 
 // Get user's files and return txt files to caller
 app.get("/api/v1/files", ensureAuthenticated, function (request, response) {
@@ -195,3 +205,13 @@ app.get("/api/v1/fileInfo/:fileId/:iterator", ensureAuthenticated, function (req
     });
   });
 });
+
+// Retrieves service credentials for the input service
+function getServiceCreds(appEnv, serviceName) {
+  var serviceCreds = appEnv.getServiceCreds(serviceName)
+  if (!serviceCreds) {
+    console.log("service " + serviceName + " not bound to this application");
+    return null;
+  }
+  return serviceCreds;
+}

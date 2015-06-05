@@ -1,9 +1,18 @@
 {
-  "name": "box-watson",
+  "name": "box-watson-jep-test",
+  "version": "0.0.1",
+  "private": false,
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "postinstall": "bower install --allow-root"
+  },
+  "engines": {
+    "node": "0.12.*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IBM-Bluemix/box-watson"
   },
   "dependencies": {
     "express": "4.9.x",
@@ -19,6 +28,20 @@
     "method-override": "*",
     "watson-developer-cloud": "*",
     "underscore": "*",
-    "node-uuid": "*"
-  }
+    "node-uuid": "*",
+    "cfenv": "*"
+  },
+  "author": [
+    {
+      "name": "Jeff Sloyer",
+      "email": "jbsloyer@us.ibm.com"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Jake Peyser",
+      "email": "jepeyser@us.ibm.com"
+    }
+  ],
+  "license": "Apache License"
 }
