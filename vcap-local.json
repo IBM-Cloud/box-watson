@@ -1,0 +1,27 @@
+{
+   "services": {
+      "user-provided": [
+         {
+            "name": "Box",
+            "label": "user-provided",
+            "credentials": {
+               "clientId": "BOX_CLIENT_ID",
+               "clientSecret": "BOX_CLIENT_SECRET",
+               "url": "https://view-api.box.com/"
+            }
+         }
+      ],
+      "personality_insights": [
+         {
+            "name": "personality-insights-box",
+            "label": "personality_insights",
+            "plan": "IBM Watson Personality Insights Monthly Plan",
+            "credentials": {
+               "url": "https://gateway.watsonplatform.net/personality-insights/api",
+               "username": "PERSONALITY_INSIGHTS_USERNAME",
+               "password": "PERSONALITY_INSIGHTS_PASSWORD"
+            }
+         }
+      ]
+   }
+}
