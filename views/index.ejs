@@ -20,15 +20,12 @@
     </div>
 </div>
 <% } else { %>
-<h2>Hello, <%= user.name %>.</h2>
+<h2>Hello, <%= user.name %>!</h2>
 <hr />
 <h3>Below are the txt files in your Box account</h3>
-<h5>Watson will analyze these files and determine the authors' unique personality traits based on the text. To learn more about how this works, check out the <a href="https://watson-pi-demo.mybluemix.net/">Watson Personality Insights</a> service.</h5>
+<h5>Select a file to have Watson analyze the author's unique personality traits based on the text.</h5>
 <hr />
-<h3>Select a file below to have Watson break down its author's personality</h3>
-<hr />
-<div id="viz-graph"></div>
-<hr />
+<div id="viz-graph" class="text-center"></div>
 
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" ng-repeat="rows in chunkedData">
     <div class="panel panel-default" ng-repeat="file in rows">
@@ -58,9 +55,5 @@
         </div>
     </div>
 </div>
-
-<p>
-    <a href="/logout">Log Out</a>
-</p>
 <% } %>
 <%- include footer.ejs %>

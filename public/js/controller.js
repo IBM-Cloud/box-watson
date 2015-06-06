@@ -40,7 +40,7 @@ angular.module("BoxInsights")
      */
     function showVizualization(theProfile) {
       var widgetId = "viz-graph",
-      widgetWidth = 600, widgetHeight = 600, // Default width and height
+      widgetWidth = 650, widgetHeight = 650, // Default width and height
       personImageUrl = 'images/watson.png';
 
       console.log(widgetId);
@@ -58,7 +58,7 @@ angular.module("BoxInsights")
           console.log('[_layout]');
         },
         showTooltip: function() {
-          console.log('[showTooltip]');
+          //console.log('[showTooltip]');
         },
         id: 'SystemUWidget',
         COLOR_PALLETTE: ['#1b6ba2', '#488436', '#d52829', '#F53B0C', '#972a6b', '#8c564b', '#dddddd'],
@@ -123,6 +123,10 @@ angular.module("BoxInsights")
       widget.expandAll.call(widget);
       if (personImageUrl)
         widget.addPersonImage.call(widget, personImageUrl);
+
+      $('html, body').animate({
+        scrollTop: $("#viz-graph").offset().top
+    }, 1000);
     }
 
     $scope.getPersonality = function() {

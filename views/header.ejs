@@ -17,17 +17,15 @@
                 <% if (user) { %>
                 <div class="jumbotron">
                     <div class="container">
-                        <div class="col-md-7 column">
-                        <h1>You had me at upload</h1>
-                        <h3>Wouldn't it be <strong>intriguing</strong> if you could gain insight into the <strong>personality</strong> of a file's author, simply by <strong>analyzing its contents?</strong></h3>
-                        </div>
-                        <div class="col-md-5 column" id="search-col">
-                            <div class="container">
-                                <form class="form-horizontal">
-                                    <div class="form-group">
-                                        <input id="query" name="query" type="text" placeholder="search: Filename (ex. wedding)" class="form-control" ng-model="file" />
-                                    </div>
-                                </form>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-5 col-xs-5 column" id="search-col">
+                                <h2 id="nav-header">Personality Box</h2>
+                            </div>
+                            <div class="col-lg-offset-2 col-md-offset-2 col-lg-5 col-md-5 col-sm-6 col-xs-5 column" id="search-col">
+                                <input id="query" name="query" type="text" placeholder="Filter by filename (ex. wedding)" class="form-control" ng-model="file" />
+                            </div>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 column text-center" id="logout-link">
+                                <a href="/logout">Logout</a>
                             </div>
                         </div>
                     </div>
