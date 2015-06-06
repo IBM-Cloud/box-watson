@@ -25,7 +25,7 @@ angular.module("BoxInsights")
 
             $scope.filteredFiles = data;
             $scope.error = false;
-            $scope.chunkedData = chunk($scope.files, 3);
+            $scope.chunkedData = chunk($scope.files);
         }).
         error(function(data, status, headers, config) {
             $scope.error = true;
@@ -150,8 +150,13 @@ angular.module("BoxInsights")
 
     function chunk(arr, size) {
         var newArr = [];
-        for (var i=0; i<arr.length; i+=size) {
-            newArr.push(arr.slice(i, i+size));
+        if (size) {
+            for (var i=0; i<arr.length; i+=size) {
+                newArr.push(arr.slice(i, i+size));
+            }
+        }
+        else {
+            newArr.push(arr.slice(i, arr.size));
         }
         return newArr;
     }
