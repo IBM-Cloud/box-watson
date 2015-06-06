@@ -15,7 +15,8 @@ angular.module("BoxInsights")
             for (var i=0; i < $scope.files.length; i++) {
                 $http.get("/api/v1/fileInfo/" + $scope.files[i].id + "/" + i.toString()).
                     success(function(data) {
-                        $scope.files[data.iterator].description = data.description;
+                        if ($scope.files[data.iterator])
+                          $scope.files[data.iterator].description = data.description;
                     }).
                     error(function(data) {
                         $scope.error = true;
@@ -34,7 +35,7 @@ angular.module("BoxInsights")
     }
 
     /**
-     * Renders the sunburst visualization. The parameter is the tree as returned
+     * Renders the sunburst visualization. The input parameter is the tree as returned
      * from the Personality Insights JSON API.
      */
     function showVizualization(theProfile) {
