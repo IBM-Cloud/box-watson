@@ -12,6 +12,7 @@
     "jquery": "*",
     "angular": "*",
     "underscore": "*",
+    "d3": "*",
     "angular-socket-io": ""
   }
 }
