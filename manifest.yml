@@ -4,12 +4,12 @@ declared-services:
     label: personality_insights
     plan: IBM Watson Personality Insights Monthly Plan
 applications:
-- name: box-watson-jep-test
+- name: box-sample-app
   framework: node
   runtime: node12
   memory: 128M
   instances: 1
-  host: box-watson-jep-test
+  host: box-sample-app
   path: .
   command: node app.js
   services:
