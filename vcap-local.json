@@ -2,12 +2,13 @@
    "services": {
       "user-provided": [
          {
-            "name": "Box",
+            "name": "box",
             "label": "user-provided",
             "credentials": {
-               "clientId": "BOX_CLIENT_ID",
-               "clientSecret": "BOX_CLIENT_SECRET",
-               "url": "https://view-api.box.com/"
+              "url": "https://api.box.com",
+              "apikey": "BOX_API_KEY",
+              "client_id": "BOX_CLIENT_ID",
+              "client_secret": "BOX_CLIENT_SECRET"
             }
          }
       ],

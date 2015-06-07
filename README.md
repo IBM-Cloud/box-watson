@@ -73,11 +73,11 @@ This app is meant to serve as a demo to showcase how quickly and easily an app c
 
 9. Next, you need to sign up for a Box developer account if you do not have one already. You can do this [here] [box_dev_signup_url].
 
-10. Once you have created an account, select 'Create a Box Application' from the side panel. Name your app, select the Box Content API, and click 'Create Application'. On the next page you will find your app's client_id and client_secret, which you will need for the following step.
+10. Once you have created an account, select 'Create a Box Application' from the side panel. Name your app, select the Box Content API, and click 'Create Application'. On the next page you will find your API key and your app's client_id and client_secret, which you will need for the following step.
 
 11. Using the credentials you received in step 9, we will create a user-provided service in Bluemix so that our app can leverage them.
   ```sh
-  $ cf cups box -p '{"url":"https://view-api.box.com/","clientId":"BOX_CLIENT_ID","clientSecret":"BOX_CLIENT_SECRET"}'
+  $ cf cups box -p '{"url":"https://api.box.com","apikey":"BOX_API_KEY","client_id":"BOX_CLIENT_ID","client_secret":"BOX_CLIENT_SECRET"}'
   ```
 Now bind the service to your app.
   ```sh
