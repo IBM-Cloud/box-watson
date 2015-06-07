@@ -1,10 +1,11 @@
 {
-  "name": "box-sample-app",
+  "name": "box-watson-jep-test",
   "version": "0.0.1",
   "private": false,
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
+    "install": "node admin.js track",
     "postinstall": "bower install --allow-root"
   },
   "engines": {
@@ -29,7 +30,9 @@
     "watson-developer-cloud": "*",
     "underscore": "*",
     "node-uuid": "*",
-    "cfenv": "*"
+    "cfenv": "*",
+    "commander": "*",
+    "http-post": "*"
   },
   "author": [
     {

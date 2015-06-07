@@ -6,7 +6,7 @@ This app is meant to serve as a demo to showcase how quickly and easily an app c
 
 [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/IBM-Bluemix/box-watson)
 
-*Note: If deploying by this method, the app will fail on first deploy. After this initial failure, you must complete steps 8-11 as described in the section 'Running the app on Bluemix' below for your app to start successfully.
+*Note: If deploying by this method, the app will fail on first deploy. After this initial failure, you must complete steps 9-12 as described in the section 'Running the app on Bluemix' below for your app to start successfully.
 
 ## How it Works
 
@@ -24,7 +24,7 @@ This app is meant to serve as a demo to showcase how quickly and easily an app c
 
 8. To log in as a different user, click the logout button in the navigation bar and you will return to the home page.
 
-## Architecture Diagram
+### Architecture Diagram
 
 <img src="https://raw.githubusercontent.com/IBM-Bluemix/box-watson/master/github_content/architecture_diagram.png" width="650px"><br>This an architectural overview of the systems that make this app run.<br>
 
@@ -66,16 +66,16 @@ This app is meant to serve as a demo to showcase how quickly and easily an app c
   $ cf create-service personality_insights IBM\ Watson\ Personality\ Insights\ Monthly\ Plan personality-insights-box
   ```
 
-7. Push it to Bluemix. We need to perform additional steps once it is deployed, so we will add the option --no-start argument
+8. Push it to Bluemix. We need to perform additional steps once it is deployed, so we will add the option --no-start argument
   ```sh
   $ cf push --no-start
   ```
 
-8. Next, you need to sign up for a Box developer account if you do not have one already. You can do this [here] [box_dev_signup_url].
+9. Next, you need to sign up for a Box developer account if you do not have one already. You can do this [here] [box_dev_signup_url].
 
-9. Once you have created an account, select 'Create a Box Application' from the side panel. Name your app, select the Box Content API, and click 'Create Application'. On the next page you will find your app's client_id and client_secret, which you will need for the following step.
+10. Once you have created an account, select 'Create a Box Application' from the side panel. Name your app, select the Box Content API, and click 'Create Application'. On the next page you will find your app's client_id and client_secret, which you will need for the following step.
 
-10. Using the credentials you received in step 9, we will create a user-provided service in Bluemix so that our app can leverage them.
+11. Using the credentials you received in step 9, we will create a user-provided service in Bluemix so that our app can leverage them.
   ```sh
   $ cf cups box -p '{"url":"https://view-api.box.com/","clientId":"BOX_CLIENT_ID","clientSecret":"BOX_CLIENT_SECRET"}'
   ```
@@ -84,7 +84,7 @@ Now bind the service to your app.
   $ cf bind-service APP_NAME box
   ```
 
-11. Finally, we need to restage our app to ensure these env variables changes took effect.
+12. Finally, we need to restage our app to ensure these env variables changes took effect.
   ```sh
   $ cf restage APP_NAME
   ```
@@ -99,38 +99,53 @@ And voila! You now have your very own instance of Personality Box running on Blu
 
 2. If you have not already, [download node.js] [download_node_url] and install it on your local machine.
 
-2. Clone the app to your local environment from your terminal using the following command
+3. Clone the app to your local environment from your terminal using the following command
   ```sh
   git clone https://github.com/IBM-Bluemix/box-watson.git
   ```
 
-3. cd into this newly created directory
+4. cd into this newly created directory
 
-4. Install the required npm and bower packages using the following command
+5. Install the required npm and bower packages using the following command
   ```sh
   npm install
   ```
 
-5. Next, you need to sign up for a Box developer account if you do not have one already. You can do this [here] [box_dev_signup_url].
+6. Next, you need to sign up for a Box developer account if you do not have one already. You can do this [here] [box_dev_signup_url].
 
-6. Once you have created an account, select 'Create a Box Application' from the side panel. Name your app, select the Box Content API, and click 'Create Application'. On the next page you will find your app's client_id and client_secret, which you will need for the following step.
+7. Once you have created an account, select 'Create a Box Application' from the side panel. Name your app, select the Box Content API, and click 'Create Application'. On the next page you will find your app's client_id and client_secret, which you will need for the following step.
 
-7. Using the credentials you received in step 9, replace the default Box configs in vcap-local.json. After you have done that, create a Personality Insights service using your Bluemix account and replace the corresponding credentials in vcap-local.json.
+8. Using the credentials you received in step 9, replace the default Box configs in vcap-local.json. After you have done that, create a Personality Insights service using your Bluemix account and replace the corresponding credentials in vcap-local.json.
 
-8. Start your app locally with the following command.
+9. Start your app locally with the following command.
   ```sh
   npm start
   ```
 
 Your app will be automatically assigned to a port which will be logged to your terminal. To access the app, go to localhost:PORT in your browser. Happy developing!
 
-## Troubleshooting
+### Troubleshooting
 
 To troubleshoot your Bluemix app the main useful source of information is the logs. To see them, run:
 
   ```sh
   $ cf logs <application-name> --recent
   ```
+
+### Privacy Notice
+
+The Personality Box sample web application includes code to track deployments to Bluemix and other Cloud Foundry platforms. The following information is sent to a [Deployment Tracker] [deploy_track_url] service on each deployment:
+
+* Application Name (`application_name`)
+* Space ID (`space_id`)
+* Application Version (`application_version`)
+* Application URIs (`application_uris`)
+
+This data is collected from the `VCAP_APPLICATION` environment variable in IBM Bluemix and other Cloud Foundry platforms. This data is used by IBM to track metrics around deployments of sample applications to IBM Bluemix. Only deployments of sample applications that include code to ping the Deployment Tracker service will be tracked.
+
+### Disabling Deployment Tracking
+
+Deployment tracking can be disabled by removing `"install": "node admin.js track"` from the `scripts` section within `package.json`.
 
 [box_url]: https://www.box.com/
 [personality_insights_url]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights.html
@@ -141,3 +156,4 @@ To troubleshoot your Bluemix app the main useful source of information is the lo
 [box_dev_signup_url]: https://app.box.com/signup/o/default_developer_offer
 [cloud_foundry_url]: https://github.com/cloudfoundry/cli
 [download_node_url]: https://nodejs.org/download/
+[deploy_track_url]: https://github.com/cloudant-labs/deployment-tracker
