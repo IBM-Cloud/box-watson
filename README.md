@@ -5,8 +5,8 @@ Personality Box pulls the txt files from your [Box][box_url] acount and allows y
 This app is meant to serve as a demo to showcase how quickly and easily an app can be built on Bluemix using the Watson Personality Insights and Box services.
 
 [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://github.com/IBM-Bluemix/box-watson)
-Bluemix sample/tutorial: Integrating Box API's with Watson built on IBM Bluemix
-*Note: If deploying by this method, the app will fail on first deploy. You must complete steps 8-11 as described in 'Running the app on Bluemix' below for your app to start successfully.
+
+*Note: If deploying by this method, the app will fail on first deploy. After this initial failure, you must complete steps 8-11 as described in the section 'Running the app on Bluemix' below for your app to start successfully.
 
 ## How it Works
 
@@ -93,11 +93,11 @@ And voila! You now have your very own instance of Personality Box running on Blu
 
 ## Running the app locally
 
-1. Create a Bluemix Account. You will need this to create a Personality Insights service and grab the credentials.
+1. Create a Bluemix Account. You will need this to create a Personality Insights service and grab the credentials later on.
 
     [Sign up][bluemix_signup_url] in Bluemix, or use an existing account.
 
-2. [Download and install node.js] [download_node_url] on your local machine, if you do not already have it.
+2. If you have not already, [download node.js] [download_node_url] and install it on your local machine.
 
 2. Clone the app to your local environment from your terminal using the following command
   ```sh
