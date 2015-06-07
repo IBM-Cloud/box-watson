@@ -1,5 +1,5 @@
 {
-  "name": "box-watson-jep-test",
+  "name": "box-sample-app",
   "version": "0.0.1",
   "private": false,
   "main": "app.js",

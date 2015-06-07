@@ -1,7 +1,7 @@
 {
-  "name": "stopHunger",
-  "version": "0.1.0",
-  "private": true,
+  "name": "box-sample-app",
+  "version": "1.0.0",
+  "private": false,
   "ignore": [
     "**/.*",
     "node_modules",
