@@ -34,7 +34,7 @@ This app is meant to serve as a demo to showcase how quickly and easily an app c
 
 1. Create a Bluemix Account
 
-    [Sign up][bluemix_signup_url] in Bluemix, or use an existing account.
+    [Sign up][bluemix_signup_url] for Bluemix, or use an existing account.
 
 2. Download and install the [Cloud-foundry CLI][cloud_foundry_url] tool
 
@@ -153,7 +153,7 @@ Deployment tracking can be disabled by removing `"install": "node admin.js track
 [personality_insights_url]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights.html
 [moby_dick_url]: https://app.box.com/s/xe4mv4tc7fi4mmuj6kgeurq0qvfv6ukd
 [sotu_url]: https://app.box.com/s/bw5l1mtlodhib0yiu5rx4hyb9az7gt4m
-[bluemix_signup_url]: https://console.ng.bluemix.net/registration/
+[bluemix_signup_url]: https://console.ng.bluemix.net/?cm_mmc=GitHubReadMe-_-BluemixSampleApp-_-Node-_-Box
 [box_signup_url]: https://app.box.com/signup/personal
 [box_dev_signup_url]: https://app.box.com/signup/o/default_developer_offer
 [cloud_foundry_url]: https://github.com/cloudfoundry/cli
