@@ -28,7 +28,7 @@ This app is meant to serve as a demo to showcase how quickly and easily an app c
 
 ### Architecture Diagram
 
-<img src="https://raw.githubusercontent.com/IBM-Bluemix/box-watson/master/github_content/architecture_diagram.png" width="650px"><br>This an architectural overview of the systems that make this app run.<br>
+<img src="https://raw.githubusercontent.com/IBM-Bluemix/box-watson/master/github_content/architecture_diagram.png?token=ABdqJ9zAmLUyqdSM52uzRXalUuW0UwhOks5VhEmUwA%3D%3D" width="650px"><br>This an architectural overview of the systems that make this app run.<br>
 
 ## Running the app on Bluemix
 
