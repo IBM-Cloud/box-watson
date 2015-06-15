@@ -4,7 +4,7 @@ Personality Box pulls the txt files from your [Box][box_url] acount and allows y
 
 This app is meant to serve as a demo to showcase how quickly and easily an app can be built on Bluemix using the Watson Personality Insights and Box services.
 
-[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/IBM-Bluemix/box-watson)
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy)
 
 [![Build Status](https://api.travis-ci.org/IBM-Bluemix/box-watson.svg?branch=master)](https://api.travis-ci.org/IBM-Bluemix/box-watson.svg?branch=master)
 
