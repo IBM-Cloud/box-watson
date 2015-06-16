@@ -4,7 +4,7 @@ declared-services:
     label: personality_insights
     plan: IBM Watson Personality Insights Monthly Plan
 applications:
-- name: box-sample-app
+- name: personality-box
   framework: node
   runtime: node12
   memory: 128M
