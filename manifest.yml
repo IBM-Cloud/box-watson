@@ -9,7 +9,7 @@ applications:
   runtime: node12
   memory: 128M
   instances: 1
-  host: box-sample-app
+  host: personality-box
   path: .
   command: node app.js
   services:
