@@ -50,12 +50,12 @@ This app is meant to serve as a demo to showcase how quickly and easily an app c
 
   ```
   applications:
-  - name: box-sample-app-test
+  - name: personality-box-test
     framework: node
     runtime: node12
     memory: 128M
     instances: 1
-    host: box-sample-app-test
+    host: personality-box-test
   ```
   The host you use will determinate your application url initially, e.g. `<application-host>.mybluemix.net`.
 
