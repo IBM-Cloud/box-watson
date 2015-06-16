@@ -6,7 +6,7 @@ This app is meant to serve as a demo to showcase how quickly and easily an app c
 
 [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy)
 
-[![Build Status](https://api.travis-ci.org/IBM-Bluemix/box-watson.svg?branch=master)](https://api.travis-ci.org/IBM-Bluemix/box-watson.svg?branch=master)
+[![Build Status](https://codeship.com/projects/5a54ade0-f674-0132-750d-5edba2a997f7/status?branch=master)](https://codeship.com/projects/5a54ade0-f674-0132-750d-5edba2a997f7/status?branch=master)
 
 *Note: If deploying by this method, the app will fail on first deploy. After this initial failure, you must complete steps 9-12 as described in the section 'Running the app on Bluemix' below for your app to start successfully.
 
