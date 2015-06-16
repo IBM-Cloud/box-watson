@@ -39,14 +39,16 @@ This app is meant to serve as a demo to showcase how quickly and easily an app c
 2. Download and install the [Cloud-foundry CLI][cloud_foundry_url] tool
 
 3. Clone the app to your local environment from your terminal using the following command
-  ```sh
+
+  ```
   git clone https://github.com/IBM-Bluemix/box-watson.git
   ```
 
 4. cd into this newly created directory
 
 5. Edit the `manifest.yml` file and change the `<application-name>` and `<application-host>` to something unique.
-  ```none
+
+  ```
   applications:
   - name: box-sample-app-test
     framework: node
@@ -58,36 +60,42 @@ This app is meant to serve as a demo to showcase how quickly and easily an app c
   The host you use will determinate your application url initially, e.g. `<application-host>.mybluemix.net`.
 
 6. Connect to Bluemix in the command line tool and follow the prompts to log in.
-  ```sh
+
+  ```
   $ cf api https://api.ng.bluemix.net
   $ cf login
   ```
 
 7. Create the Personality Insights service in Bluemix.
-  ```sh
+
+  ```
   $ cf create-service personality_insights IBM\ Watson\ Personality\ Insights\ Monthly\ Plan personality-insights-box
   ```
 
 8. Push it to Bluemix. We need to perform additional steps once it is deployed, so we will add the option --no-start argument
-  ```sh
+
+  ```
   $ cf push --no-start
   ```
 
-9. Next, you need to sign up for a Box developer account if you do not have one already. You can do this [here] [box_dev_signup_url].
+9. Next, you need to sign up for a Box developer account if you do not have one already. You can do this [here][box_dev_signup_url].
 
 10. Once you have created an account, select 'Create a Box Application' from the side panel. Name your app, select the Box Content API, and click 'Create Application'. On the next page you will find your API key and your app's client_id and client_secret, which you will need for the following step.
 
 11. Using the credentials you received in step 9, we will create a user-provided service in Bluemix so that our app can leverage them.
-  ```sh
-  $ cf cups box -p '{"url":"https://api.box.com","apikey":"BOX_API_KEY","client_id":"BOX_CLIENT_ID","client_secret":"BOX_CLIENT_SECRET"}'
+
+  ```
+  $ cf cups box -p '{"url":"https://api.box.com","apikey":"BOX_API_KEY","clientId":"BOX_CLIENT_ID","clientSecret":"BOX_CLIENT_SECRET"}'
   ```
 Now bind the service to your app.
-  ```sh
+
+  ```
   $ cf bind-service APP_NAME box
   ```
 
 12. Finally, we need to restage our app to ensure these env variables changes took effect.
-  ```sh
+
+  ```
   $ cf restage APP_NAME
   ```
 
@@ -99,28 +107,31 @@ And voila! You now have your very own instance of Personality Box running on Blu
 
     [Sign up][bluemix_signup_url] in Bluemix, or use an existing account.
 
-2. If you have not already, [download node.js] [download_node_url] and install it on your local machine.
+2. If you have not already, [download node.js][download_node_url] and install it on your local machine.
 
 3. Clone the app to your local environment from your terminal using the following command
-  ```sh
+
+  ```
   git clone https://github.com/IBM-Bluemix/box-watson.git
   ```
 
 4. cd into this newly created directory
 
 5. Install the required npm and bower packages using the following command
-  ```sh
+
+  ```
   npm install
   ```
 
-6. Next, you need to sign up for a Box developer account if you do not have one already. You can do this [here] [box_dev_signup_url].
+6. Next, you need to sign up for a Box developer account if you do not have one already. You can do this [here][box_dev_signup_url].
 
 7. Once you have created an account, select 'Create a Box Application' from the side panel. Name your app, select the Box Content API, and click 'Create Application'. On the next page you will find your app's client_id and client_secret, which you will need for the following step.
 
 8. Using the credentials you received in step 9, replace the default Box configs in vcap-local.json. After you have done that, create a Personality Insights service using your Bluemix account and replace the corresponding credentials in vcap-local.json.
 
 9. Start your app locally with the following command.
-  ```sh
+
+  ```
   npm start
   ```
 
@@ -130,7 +141,7 @@ Your app will be automatically assigned to a port which will be logged to your t
 
 To troubleshoot your Bluemix app the main useful source of information is the logs. To see them, run:
 
-  ```sh
+  ```
   $ cf logs <application-name> --recent
   ```
 
