@@ -15,6 +15,9 @@ var express = require('express'),
     uuid = require("node-uuid"),
     cfenv = require("cfenv");
 
+//---Deployment Tracker---------------------------------------------------------
+require("cf-deployment-tracker-client").track();
+
 //---Environment Vars-----------------------------------------------------------
 var vcapLocal = null
 try {

@@ -6,7 +6,7 @@ This app is meant to serve as a demo to showcase how quickly and easily an app c
 
 [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy)
 
-[![Build Status](https://codeship.com/projects/5a54ade0-f674-0132-750d-5edba2a997f7/status?branch=master)](https://codeship.com/projects/5a54ade0-f674-0132-750d-5edba2a997f7/status?branch=master)
+[![Build Status](https://api.travis-ci.org/IBM-Bluemix/box-watson.svg?branch=master)](https://api.travis-ci.org/IBM-Bluemix/box-watson.svg?branch=master)
 
 *Note: If deploying by this method, the app will fail on first deploy. After this initial failure, you must complete steps 9-12 as described in the section 'Running the app on Bluemix' below for your app to start successfully.
 
@@ -28,7 +28,7 @@ This app is meant to serve as a demo to showcase how quickly and easily an app c
 
 ### Architecture Diagram
 
-<img src="https://raw.githubusercontent.com/IBM-Bluemix/box-watson/master/github_content/architecture_diagram.png?token=ABdqJ9zAmLUyqdSM52uzRXalUuW0UwhOks5VhEmUwA%3D%3D" width="650px"><br>This an architectural overview of the systems that make this app run.<br>
+<img src="./github_content/architecture_diagram.png" width="650px"><br>This an architectural overview of the components that make this app run.<br>
 
 ## Running the app on Bluemix
 
@@ -50,12 +50,12 @@ This app is meant to serve as a demo to showcase how quickly and easily an app c
 
   ```
   applications:
-  - name: personality-box-test
+  - name: box-sample-app-test
     framework: node
     runtime: node12
     memory: 128M
     instances: 1
-    host: personality-box-test
+    host: box-sample-app-test
   ```
   The host you use will determinate your application url initially, e.g. `<application-host>.mybluemix.net`.
 
@@ -158,13 +158,13 @@ This data is collected from the `VCAP_APPLICATION` environment variable in IBM B
 
 ### Disabling Deployment Tracking
 
-Deployment tracking can be disabled by removing `"install": "node admin.js track"` from the `scripts` section within `package.json`.
+Deployment tracking can be disabled by removing `require("cf-deployment-tracker-client").track();` from the beginning of the `app.js` main server file.
 
 [box_url]: https://www.box.com/
 [personality_insights_url]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights.html
 [moby_dick_url]: https://app.box.com/s/xe4mv4tc7fi4mmuj6kgeurq0qvfv6ukd
 [sotu_url]: https://app.box.com/s/bw5l1mtlodhib0yiu5rx4hyb9az7gt4m
-[bluemix_signup_url]: https://console.ng.bluemix.net/?cm_mmc=GitHubReadMe-_-BluemixSampleApp-_-Node-_-Box
+[bluemix_signup_url]: https://console.ng.bluemix.net/?cm_mmc=Display-GitHubReadMe-_-BluemixSampleApp-PersonalityBox-_-Node-Box-_-BM-DevAd
 [box_signup_url]: https://app.box.com/signup/personal
 [box_dev_signup_url]: https://app.box.com/signup/o/default_developer_offer
 [cloud_foundry_url]: https://github.com/cloudfoundry/cli
