@@ -50,7 +50,7 @@ passport.deserializeUser(function (obj, done) {
 // Authenticate bos identification
 passport.use(new BoxStrategy({
     clientID: boxCreds.clientId || boxCreds.client_id,
-    clientSecret: boxCreds.client_secret,
+    clientSecret: boxCreds.clientSecret || boxCreds.client_secret,
     callbackURL: config.appURL(appEnv.port) + "/auth/box/callback"
   }, box.authenticate()));
 
