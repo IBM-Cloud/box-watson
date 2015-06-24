@@ -108,10 +108,8 @@ app.get('/account', ensureAuthenticated, function (req, res) {
   });
 });
 
-app.get('/login', function (req, res) {
-  res.render('login', {
-    user: req.user
-  });
+app.get('/login', function (request, response) {
+  response.redirect("/auth/box");
 });
 
 app.get('/auth/box',
