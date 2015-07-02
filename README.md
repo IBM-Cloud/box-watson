@@ -69,7 +69,7 @@ This app is meant to serve as a demo to showcase how quickly and easily an app c
 7. Create the Personality Insights service in Bluemix.
 
   ```
-  $ cf create-service personality_insights IBM\ Watson\ Personality\ Insights\ Monthly\ Plan personality-insights-box
+  $ cf create-service personality_insights standard personality-insights-box
   ```
 
 8. Push it to Bluemix. We need to perform additional steps once it is deployed, so we will add the option --no-start argument
