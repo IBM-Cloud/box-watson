@@ -19,13 +19,7 @@ var express = require('express'),
 require("cf-deployment-tracker-client").track();
 
 //---Environment Vars-----------------------------------------------------------
-var vcapLocal = null
-try {
-  vcapLocal = require("./vcap-local.json")
-}
-catch (e) {}
 
-var appEnvOpts = vcapLocal ? {vcap:vcapLocal} : {}
 var appEnv = cfenv.getAppEnv(appEnvOpts);
 
 //---Set up Watson Personality Insights-----------------------------------------
