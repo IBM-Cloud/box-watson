@@ -6,9 +6,9 @@
             "label": "user-provided",
             "credentials": {
               "url": "https://api.box.com",
-              "apikey": "BOX_API_KEY",
-              "clientId": "BOX_CLIENT_ID",
-              "clientSecret": "BOX_CLIENT_SECRET"
+              "apikey": "lho1zq3z73ex1lure7rpqouvlu6gorjb",
+              "clientId": "lho1zq3z73ex1lure7rpqouvlu6gorjb",
+              "clientSecret": "wTE0HAA7LCRhPW1DYNlx2EsoYzE72sSa"
             }
          }
       ],
@@ -19,8 +19,8 @@
             "plan": "standard",
             "credentials": {
                "url": "https://gateway.watsonplatform.net/personality-insights/api",
-               "username": "PERSONALITY_INSIGHTS_USERNAME",
-               "password": "PERSONALITY_INSIGHTS_PASSWORD"
+               "username": "616a42f2-8303-4bb2-9a8b-f70f4e06ae22",
+               "password": "Jnu5knskT4zU"
             }
          }
       ]

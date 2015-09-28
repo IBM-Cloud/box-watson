@@ -39,16 +39,28 @@
         </div>
         <div id="collapse-{{ file.id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading-{{ file.id }}">
             <div class="panel-body traits">
-                <div ng-if="file.personality">
-                    <ul>
-                        <li ng-repeat="trait in file.personality.tree.children[0].children[0].children">
-                            {{ trait.name }}: {{ trait.percentage | percentage:2 }}
-                            <div class="progress">
-                                <div class="bar" style="width: {{ trait.percentage | percentage:2 }}; height: 100%; background-color: #0abeef;"></div>
-                            </div>
-                        </li>
-                    </ul>
-                    <button id="viz-btn-{{ file.id }}" class="personality-btn btn btn-default">Full Personality Graph</button>
+                <div ng-if="file.personality" class="row">
+                    <div class="col-md-6">
+                        <blockquote>
+                        {{ file.personalityExplained }}
+                        <cite>IBM Watson</cite>
+                        </blockquote>
+                    </div>
+                    <div class="col-md-6">
+                        <ul>
+                            <li ng-repeat="trait in file.personality.tree.children[0].children[0].children">
+                                {{ trait.name }}: {{ trait.percentage | percentage:2 }}
+                                <div class="progress">
+                                    <div class="bar" style="width: {{ trait.percentage | percentage:2 }}; height: 100%; background-color: #0abeef;"></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div ng-if="file.personality" class="row">
+                    <div class="col-md-12">
+                        <button id="viz-btn-{{ file.id }}" class="personality-btn btn btn-default">Full Personality Graph</button>
+                    </div>
                 </div>
                 <div ng-if="!file.personality">Loading...</div>
             </div>
