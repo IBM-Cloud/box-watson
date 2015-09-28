@@ -20,7 +20,7 @@ require("cf-deployment-tracker-client").track();
 
 //---Environment Vars-----------------------------------------------------------
 
-var appEnv = cfenv.getAppEnv(appEnvOpts);
+var appEnv = cfenv.getAppEnv();
 
 //---Set up Watson Personality Insights-----------------------------------------
 var personalityInsightsCreds = getServiceCreds(appEnv, "personality-insights-box");
