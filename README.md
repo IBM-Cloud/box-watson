@@ -6,7 +6,7 @@ This app is meant to serve as a demo to showcase how quickly and easily an app c
 
 [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy)
 
-[![Build Status](https://api.travis-ci.org/IBM-Bluemix/box-watson.svg?branch=master)](https://api.travis-ci.org/IBM-Bluemix/box-watson.svg?branch=master)
+[![Build Status](https://api.travis-ci.org/IBM-Bluemix/box-watson.svg?branch=master)](https://travis-ci.org/IBM-Bluemix/box-watson)
 
 *Note: If deploying by this method, the app will fail on first deploy. After this initial failure, you must complete steps 9-12 as described in the section 'Running the app on Bluemix' below for your app to start successfully.
 
@@ -127,7 +127,7 @@ And voila! You now have your very own instance of Personality Box running on Blu
 
 7. Once you have created an account, select 'Create a Box Application' from the side panel. Name your app, select the Box Content API, and click 'Create Application'. On the next page you will find your app's client_id and client_secret, which you will need for the following step.
 
-8. Using the credentials you received in step 9, replace the default Box configs in vcap-local.json. After you have done that, create a Personality Insights service using your Bluemix account and replace the corresponding credentials in vcap-local.json.
+8. Copy the file ```vcap-local-example.json``` to ``` vcap-local.json```. Using the credentials you received in step 7, replace the default Box configs in ```vcap-local.json```. After you have done that, create a Personality Insights service using your Bluemix account and replace the corresponding credentials in vcap-local.json.
 
 9. Start your app locally with the following command.
 
