@@ -51,7 +51,7 @@ passport.deserializeUser(function (obj, done) {
 passport.use(new BoxStrategy({
     clientID: boxCreds.clientId || boxCreds.client_id,
     clientSecret: boxCreds.clientSecret || boxCreds.client_secret,
-    callbackURL: "https://personality-box.mybluemix.net" + "/auth/box/callback"
+    callbackURL: config.appURL(appEnv.port) + "/auth/box/callback"
   }, box.authenticate()));
 
 //---Routers and View Engine----------------------------------------------------
