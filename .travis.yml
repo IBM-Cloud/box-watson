@@ -4,7 +4,7 @@ node_js:
 sudo: true
 env:
   global:
-  - CF_APP=deployment-tracker
+  - CF_APP=personality-box
   - CF_API=https://api.ng.bluemix.net
   - secure: "eUrd7hMxhApc18S24rJcKPXfou0xLxlEWBej/ou59pyE0NdmJGQiPRyzOr0EGd1ZI5eCdvx5nWB+u/gs/qd/eKsk9pokP5JnpJOvV0cLI+k0VdOtixoNwdd3T/P7XGFP8mLlagHeJq55a0W9HRPiW6aLmooBXToim6Ie1Tt+shI="
   - CF_ORGANIZATION=Dev-Advocates
