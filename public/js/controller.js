@@ -135,16 +135,14 @@ angular.module("BoxInsights")
         if (!this.file.personality) {
             $http.get("/api/v1/personality/" + this.file.id).
             success(function(data, status, headers, config) {
-                console.log(data.tree.children[0].children[0].children);
                 self.file.personality = data;
                 var paragraphs = textSummary.assemble(data.tree);
                 self.file.paragraphs = paragraphs;
-                console.log(paragraphs);
-                var displayText = data.word_count_message ? '**' + data.word_count_message + '.' : '';
+                var displayText = "";
                 paragraphs.forEach(function (sentences) {
-                  displayText += sentences.join(' ');
+                  displayText += "<p>" + sentences.join(' ') + "</p>";
                 });
-                self.file.personalityExplained = displayText;
+                self.file.personalityExplained = $sce.trustAsHtml(displayText);
                 setTimeout(function(){
                     var showVizButton = document.getElementById("viz-btn-" + self.file.id.toString());
                     showVizButton.addEventListener("click", function() {

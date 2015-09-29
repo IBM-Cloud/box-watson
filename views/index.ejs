@@ -42,7 +42,7 @@
                 <div ng-if="file.personality" class="row">
                     <div class="col-md-6">
                         <blockquote>
-                        {{ file.personalityExplained }}
+                        <div ng-bind-html="file.personalityExplained"></div>
                         <cite>IBM Watson</cite>
                         </blockquote>
                     </div>
