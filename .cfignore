@@ -29,5 +29,6 @@ node_modules
 .DS_STORE
 npm-debug.log
 vcap-local.json
+vcap-local-example.json
 
 public/vendor/
