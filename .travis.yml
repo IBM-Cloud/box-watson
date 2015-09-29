@@ -1,3 +1,19 @@
 language: node_js
 node_js:
-  - "0.12"
+- '0.12'
+sudo: true
+env:
+  global:
+  - CF_APP=deployment-tracker
+  - CF_API=https://api.ng.bluemix.net
+  - secure: "eUrd7hMxhApc18S24rJcKPXfou0xLxlEWBej/ou59pyE0NdmJGQiPRyzOr0EGd1ZI5eCdvx5nWB+u/gs/qd/eKsk9pokP5JnpJOvV0cLI+k0VdOtixoNwdd3T/P7XGFP8mLlagHeJq55a0W9HRPiW6aLmooBXToim6Ie1Tt+shI="
+  - CF_ORGANIZATION=Dev-Advocates
+  - CF_SPACE=demos
+  - secure: "eoPr3MPOiFlBmoLwTBxRtr3BG1T/pBrWgZ6XHY5iuI4g/I2991Y5GnmL4wErBapOxTbGnbPxpa8GOcEnDj2VFwa7RoEn5/gMpOm67VtuW6AksUNduGQV3pJn3YjQuKajRATspeGvqUSSqsvTwKAIZrQMXb5m1CSYDuV524SblLo="
+before_deploy: npm install -g cf-blue-green
+deploy:
+  provider: script
+  script: cf-blue-green-travis
+  on:
+    branch: master
+    repo: IBM-Bluemix/box-watson
