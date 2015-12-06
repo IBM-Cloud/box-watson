@@ -2,7 +2,7 @@
 declared-services:
   personality-insights-box:
     label: personality_insights
-    plan: standard
+    plan: tiered
 applications:
 - name: personality-box
   framework: node
