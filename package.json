@@ -1,5 +1,5 @@
 {
-  "name": "box-sample-app",
+  "name": "personality-box",
   "version": "1.0.1",
   "private": false,
   "main": "app.js",
@@ -16,21 +16,21 @@
   },
   "dependencies": {
     "express": "4.9.x",
-    "bower": "1.6.*",
-    "ejs": "*",
-    "passport": "0.2.1",
-    "passport-box": "*",
-    "box-sdk": "*",
-    "morgan": "*",
-    "body-parser": "*",
-    "cookie-parser": "*",
-    "express-session": "*",
-    "method-override": "*",
-    "watson-developer-cloud": "*",
-    "underscore": "*",
-    "node-uuid": "*",
-    "cfenv": "*",
-    "cf-deployment-tracker-client": "*"
+    "bower": "1.6.x",
+    "ejs": "2.4.x",
+    "passport": "0.3.x",
+    "passport-box": "0.1.x",
+    "box-sdk": "0.0.x",
+    "morgan": "1.6.x",
+    "body-parser": "1.14.x",
+    "cookie-parser": "1.4.x",
+    "express-session": "1.13.x",
+    "method-override": "2.3.x",
+    "watson-developer-cloud": "1.2.x",
+    "underscore": "1.8.x",
+    "node-uuid": "1.4.x",
+    "cfenv": "1.0.x",
+    "cf-deployment-tracker-client": "0.0.x"
   },
   "author": [
     {

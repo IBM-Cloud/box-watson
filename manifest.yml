@@ -5,11 +5,11 @@ declared-services:
     plan: tiered
 applications:
 - name: personality-box
+  host: personality-box
   framework: node
   runtime: node12
   memory: 128M
   instances: 1
-  host: personality-box
   path: .
   command: node app.js
   services:
