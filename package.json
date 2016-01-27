@@ -1,6 +1,6 @@
 {
   "name": "box-sample-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "main": "app.js",
   "scripts": {
@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "express": "4.9.x",
-    "bower": "*",
+    "bower": "1.6.*",
     "ejs": "*",
     "passport": "0.2.1",
     "passport-box": "*",
@@ -44,5 +44,5 @@
       "email": "jepeyser@us.ibm.com"
     }
   ],
-  "license": "Apache License"
+  "license": "Apache-2.0"
 }
