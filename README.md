@@ -59,7 +59,7 @@ Personality Box pulls the .txt files from your [Box][box_url] acount and allows 
 7. Create the Personality Insights service in Bluemix
 
   ```
-  $ cf create-service personality_insights standard personality-insights-box
+  $ cf create-service personality_insights tiered personality-insights-box
   ```
 
 8. Push your app to Bluemix. We need to perform additional steps once it is deployed, so we will add the option `--no-start` argument
