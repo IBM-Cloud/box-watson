@@ -19,13 +19,13 @@ var express = require('express'),
 require("cf-deployment-tracker-client").track();
 
 //---Environment Vars-----------------------------------------------------------
-var vcapLocal = null
+var vcapLocal = null;
 try {
-  vcapLocal = require("./vcap-local.json")
+  vcapLocal = require("./vcap-local.json");
 }
 catch (e) {}
 
-var appEnvOpts = vcapLocal ? {vcap:vcapLocal} : {}
+var appEnvOpts = vcapLocal ? {vcap:vcapLocal} : {};
 var appEnv = cfenv.getAppEnv(appEnvOpts);
 
 //---Set up Watson Personality Insights-----------------------------------------
@@ -47,7 +47,7 @@ passport.deserializeUser(function (obj, done) {
   done(null, obj);
 });
 
-// Authenticate bos identification
+// Authenticate box identification
 passport.use(new BoxStrategy({
     clientID: boxCreds.clientId || boxCreds.client_id,
     clientSecret: boxCreds.clientSecret || boxCreds.client_secret,
@@ -208,7 +208,7 @@ app.get("/api/v1/fileInfo/:fileId/:iterator", ensureAuthenticated, function (req
 
 // Retrieves service credentials for the input service
 function getServiceCreds(appEnv, serviceName) {
-  var serviceCreds = appEnv.getServiceCreds(serviceName)
+  var serviceCreds = appEnv.getServiceCreds(serviceName);
   if (!serviceCreds) {
     console.log("service " + serviceName + " not bound to this application");
     return null;

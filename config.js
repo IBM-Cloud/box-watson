@@ -8,7 +8,7 @@ module.exports = function() {
     return {
         appURL: function(port) {
             if (VCAP_APPLICATION) {
-                return "https://" + vcapApplication.application_uris[0].replace("-b");
+                return "https://" + vcapApplication.application_uris[0];
             }
             else {
                 return "http://localhost:" + port.toString();

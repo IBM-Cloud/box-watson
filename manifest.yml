@@ -14,4 +14,3 @@ applications:
   command: node app.js
   services:
   - personality-insights-box
-  - box

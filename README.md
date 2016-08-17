@@ -1,12 +1,12 @@
 # personality-box Overview
 
+[![Build Status](https://api.travis-ci.org/IBM-Bluemix/box-watson.svg?branch=master)](https://travis-ci.org/IBM-Bluemix/box-watson)
+
 Personality Box pulls the .txt files from your [Box][box_url] acount and allows you to analyze the unique personality traits of each file's author using the Watson [Personality Insights API][personality_insights_url]. For sample files, feel free to use either [President Obama's 2015 State of the Union Address] [sotu_url] or [Moby Dick - Chapter 1] [moby_dick_url] hosted in our Box account.
 
 [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy)
 
 ![Bluemix Deployments](https://deployment-tracker.mybluemix.net/stats/cbbfb98edcefea0cbaaf8583b0d21916/badge.svg)
-
-[![Build Status](https://api.travis-ci.org/IBM-Bluemix/box-watson.svg?branch=master)](https://travis-ci.org/IBM-Bluemix/box-watson)
 
 **Note**: If deploying by this method, the app will fail on first deploy. After this initial failure, you must complete steps 9-12 as described in the section 'Running the app on Bluemix' below for your app to start successfully.
 
@@ -72,7 +72,7 @@ Personality Box pulls the .txt files from your [Box][box_url] acount and allows 
 
 10. Once you have created an account, select 'Create a Box Application' from the side panel. Name your app, select the Box Content API, and click 'Create Application'. On the next page you will find your API key and your app's `client_id` and `client_secret`, which you will need for the following step.
 
-11. Navigate to the [Box service][box_service_url] in the Bluemix Catalog. Select your app from the space you created, name the service `box`, and fill out the `API Key`, `Client ID`, and `Client Secret` with the credentials you received in step 10.
+11. Navigate to the [Box service][box_service_url] in the Bluemix Catalog. Select your recently created app to bind the service, name the service `box`, and fill out the `API Key`, `Client ID`, and `Client Secret` with the credentials you received in step 10.
 
 12. Finally, we need to restage our app to ensure these env variable changes took effect
 
@@ -145,7 +145,7 @@ Deployment tracking can be disabled by removing `require("cf-deployment-tracker-
 [personality_insights_url]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/personality-insights.html
 [moby_dick_url]: https://app.box.com/s/xe4mv4tc7fi4mmuj6kgeurq0qvfv6ukd
 [sotu_url]: https://app.box.com/s/bw5l1mtlodhib0yiu5rx4hyb9az7gt4m
-[bluemix_signup_url]: https://console.ng.bluemix.net/registration/?cm_mmc=Display-GitHubReadMe-_-BluemixSampleApp-PersonalityBox-_-Node-Box-_-BM-DevAd
+[bluemix_signup_url]: http://ibm.biz/box-api-signup
 [box_signup_url]: https://app.box.com/signup/personal
 [box_dev_signup_url]: https://app.box.com/signup/o/default_developer_offer
 [box_service_url]: https://console.ng.bluemix.net/catalog/services/box/
