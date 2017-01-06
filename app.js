@@ -37,7 +37,7 @@ var personality_insights = watson.personality_insights(personalityInsightsCreds)
 var boxCreds = getServiceCreds(appEnv, "box"),
     box = box_sdk.Box();
 
-var port = process.env.VCAP_APP_PORT || 3000;
+var port = process.env.PORT || 3000;
 
 passport.serializeUser(function (user, done) {
   done(null, user);
