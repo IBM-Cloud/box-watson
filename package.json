@@ -15,7 +15,7 @@
     "url": "https://github.com/IBM-Bluemix/box-watson.git"
   },
   "dependencies": {
-    "express": "4.9.x",
+    "express": "4.16.x",
     "bower": "1.8.2",
     "ejs": "2.5.x",
     "passport": "0.3.x",
