@@ -1,7 +1,5 @@
 # personality-box Overview
 
-[![Build Status](https://api.travis-ci.org/IBM-Cloud/box-watson.svg?branch=master)](https://travis-ci.org/IBM-Cloud/box-watson)
-
 Personality Box pulls the .txt files from your [Box][box_url] acount and allows you to analyze the unique personality traits of each file's author using the Watson [Personality Insights API][personality_insights_url]. For sample files, feel free to use either [President Obama's 2015 State of the Union Address] [sotu_url] or [Moby Dick - Chapter 1] [moby_dick_url] hosted in our Box account.
 
 [![Deploy to IBM Cloud](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy)
