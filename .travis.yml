@@ -16,4 +16,4 @@ deploy:
   script: cf-blue-green-travis
   on:
     branch: master
-    repo: IBM-Bluemix/box-watson
+    repo: IBM-Cloud/box-watson
